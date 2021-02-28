@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "runQuery": "babel-node ./src/utils/runQuery",
     "test": "nyc --reporter=html --reporter=text --reporter=lcov mocha -r @babel/register",
     "prestart": "babel ./src --out-dir build",
     "start": "node ./src/bin/www",
@@ -25,7 +26,8 @@
     "express": "^4.16.4",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "pg": "^8.5.1"
   },
   "devDependencies": {
     "chai": "^4.3.0",
