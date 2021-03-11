@@ -7,8 +7,6 @@ import session from 'express-session';
 import indexRouter from './routes/index';
 import { userByNamePass, getUserById } from './controllers/user';
 import initializePass from './utils/passport-config';
-import methodOverride from 'method-override'
-
 
 const cryptoRandomString = require('crypto-random-string');
 
@@ -17,7 +15,6 @@ initializePass(passport, userByNamePass, getUserById);
 const app = express();
 app.set('view-engine', 'ejs');
 app.use(flash());
-app.use(methodOverride('_method'))
 app.use(
   session({
     secret: cryptoRandomString({ length: 10 }),
@@ -34,6 +31,7 @@ app.use(cookieParser());
 app.use('/v1', indexRouter);
 app.use((err, req, res, next) => {
   res.status(400).json({ error: err.stack });
+  next();
 });
 
 export default app;

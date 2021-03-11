@@ -14,19 +14,16 @@ export const performAsyncAction = async (req, res, next) => {
   }
 };
 
-
-
 export const checkAuthenticated = (req, res, next) => {
-  if(req.isAuthenticated()){
-    return next()
+  if (req.isAuthenticated()) {
+    return next();
   }
-  res.redirect('/v1/login')
+  res.redirect('/v1/login');
 };
 
-
 export const checkNotAuthenticated = (req, res, next) => {
-  if(req.isAuthenticated()){
-    res.redirect('/v1/orders')
+  if (req.isAuthenticated()) {
+    res.redirect('/v1/orders');
   }
-  next()
+  next();
 };

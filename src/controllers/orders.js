@@ -10,14 +10,14 @@ export const ordersPage = async (req, res) => {
   }
 };
 
-export const addOrder = async (req, res) => {
-  const {username } = req.body;
+export const addOrder = async (req, res, next) => {
+  const { username } = req.user;
   const columns = 'time_ordered,users';
   const date = new Date(Date.now());
-  const values = `'${date.toUTCString()}','${username}'`;
+  const values = `'${date.toUTCString()}','${username.username}'`;
   try {
-    const data = await orderModel.insertWithReturn(columns, values);
-    res.status(200).json({ messages: data.rows });
+    await orderModel.insertWithReturn(columns, values);
+    next();
   } catch (err) {
     res.status(200).json({ messages: err.stack });
   }
@@ -27,7 +27,7 @@ export const orderById = async (req, res) => {
   try {
     const { id } = req.params;
     const data = await orderModel.select(
-      'id, time_ordered, users',
+      'id, time_ordered',
       ` WHERE id = ${id.slice(1)}`
     );
     res.status(200).json({ messages: data.rows });
@@ -37,13 +37,22 @@ export const orderById = async (req, res) => {
 };
 export const orderByUser = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { username } = await req.user;
     const data = await orderModel.select(
       'id, time_ordered, users',
-      ` WHERE users = '${id.slice(1)}'`
+      ` WHERE users = '${username}'`
     );
     res.status(200).json({ messages: data.rows });
   } catch (err) {
     res.status(200).json({ messages: err.stack });
+  }
+};
+
+export const lastOrderId = async (username) => {
+  try {
+    const data = await orderModel.getLastId(username);
+    return data.rows[0].id;
+  } catch (err) {
+    console.log(err);
   }
 };

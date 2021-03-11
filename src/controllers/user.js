@@ -18,12 +18,12 @@ export const addUser = async (req, res) => {
   const {
     name, surname, email, username, password
   } = req.body;
-  const columns = 'address_id,customer_name, customer_surname, email, username, password,id';
+  const columns = 'customer_name, customer_surname, email, username, password,id';
 
   try {
     const hashedPas = await bcrypt.hash(password, 10);
-    const values = `'1', '${name}', '${surname}', '${email}', '${username}', '${hashedPas}','${uuidv4()}'`;
-    const data = await userModel.insertWithReturn(columns, values);
+    const values = `'${name}', '${surname}', '${email}', '${username}', '${hashedPas}','${uuidv4()}'`;
+    await userModel.insertWithReturn(columns, values);
     res.redirect('/v1/login');
   } catch (err) {
     res.status(200).json({ messages: err.stack });
@@ -43,12 +43,12 @@ export const userByNamePass = async (user) => {
 };
 export const userByName = async (req, res) => {
   try {
-    const user = req.params.username;
-
+    const { username } = await req.user;
     const data = await userModel.select(
       'customer_name, customer_surname, username,verification',
-      ` WHERE username = '${user.slice(1)}'`
+      ` WHERE username = '${username}'`
     );
+
     res.status(200).json({ messages: data.rows });
   } catch (err) {
     res.status(200).json({ messages: err.stack });
@@ -62,8 +62,30 @@ export const getUserById = async (id) => {
       ` WHERE id = '${id}'`
     );
     const output = { user: data.rows };
-    
+
     return output.user[0];
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const alterUser = async (req, res) => {
+  const input = req.body;
+  const { username } = await req.user;
+  try {
+    if (input.password) {
+      input.password = await bcrypt.hash(input.password, 10);
+    }
+    await userModel.alterTable(input, `WHERE username = '${username}';`);
+    res.status(201).send('changed');
+  } catch (err) {
+    res.status(200).json({ messages: err.stack });
+  }
+};
+
+export const alterUserLocally = async (input, username) => {
+  try {
+    await userModel.alterTable(input, `WHERE username = '${username}';`);
   } catch (err) {
     console.log(err);
   }
