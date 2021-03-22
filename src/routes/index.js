@@ -1,9 +1,9 @@
 import express from 'express';
 import passport from 'passport';
-import { testEnvironmentVariable } from '../settings';
 import { addAddress } from '../controllers/address';
-import { addOrder, orderById, orderByUser } from '../controllers/orders';
+import { addOrder, orderByUser } from '../controllers/orders';
 import { addUser, userByName, alterUser } from '../controllers/user';
+import {productsOrdersPage} from '../controllers/product-orders'
 import {
   checkAuthenticated,
   checkNotAuthenticated,
@@ -11,9 +11,6 @@ import {
 import { productsPage, addProductsToOrder } from '../controllers/products';
 
 const indexRouter = express.Router();
-
-indexRouter.get('/', (req, res) => res.status(200).json({ message: testEnvironmentVariable }));
-
 // products
 
 indexRouter.get('/products', productsPage);
@@ -35,8 +32,8 @@ indexRouter.get('/register', checkNotAuthenticated, (req, res) => {
 indexRouter.post(
   '/login',
   passport.authenticate('local', {
-    successRedirect: '/v1/myinfo',
-    failureRedirect: '/v1/login',
+    successRedirect: 'http://localhost:3001/user',
+    failureRedirect: 'http://localhost:3001/login',
     failureFlash: true,
   })
 );
@@ -44,7 +41,7 @@ indexRouter.post('/register', addUser);
 
 // orders
 
-indexRouter.get('/orders:id', orderById);
+indexRouter.get('/orders:id', checkAuthenticated, productsOrdersPage);
 indexRouter.get('/orders', checkAuthenticated, orderByUser);
 indexRouter.post('/orders', checkAuthenticated, addOrder, addProductsToOrder);
 

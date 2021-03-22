@@ -24,7 +24,7 @@ export const addUser = async (req, res) => {
     const hashedPas = await bcrypt.hash(password, 10);
     const values = `'${name}', '${surname}', '${email}', '${username}', '${hashedPas}','${uuidv4()}'`;
     await userModel.insertWithReturn(columns, values);
-    res.redirect('/v1/login');
+    res.redirect('https://localhost:3001/login');
   } catch (err) {
     res.status(200).json({ messages: err.stack });
   }

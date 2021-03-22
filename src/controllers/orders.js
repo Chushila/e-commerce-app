@@ -1,4 +1,4 @@
-import Model from '../models/model';
+import Model from '../models/model'
 
 const orderModel = new Model('orders');
 export const ordersPage = async (req, res) => {
@@ -25,7 +25,7 @@ export const addOrder = async (req, res, next) => {
 
 export const orderById = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { id } = await req.params;
     const data = await orderModel.select(
       'id, time_ordered',
       ` WHERE id = ${id.slice(1)}`

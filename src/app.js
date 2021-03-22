@@ -7,6 +7,9 @@ import session from 'express-session';
 import indexRouter from './routes/index';
 import { userByNamePass, getUserById } from './controllers/user';
 import initializePass from './utils/passport-config';
+import cors from 'cors'
+import {allowedOrigins} from './settings'
+
 
 const cryptoRandomString = require('crypto-random-string');
 
@@ -24,6 +27,10 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(cors({
+  credentials: true,
+  origin: 'http://localhost:3001'
+}));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
