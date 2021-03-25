@@ -2,7 +2,7 @@ function Register(){
     return(
         <div className ='Register' >
         <h1>Register</h1>
-<form action = "/v1/register" method="POST">
+<form action = "http://localhost:3000/v1/register" method="POST">
     <div>
         <div>
             <label for ='username'>username</label>
@@ -29,7 +29,7 @@ function Register(){
     </div>
     <button type ="submit">Register </button>
 </form>
-<a href = '/v1/login'> Login</a>
+<a href = '/login'> Login</a>
 </div>
     )
 }

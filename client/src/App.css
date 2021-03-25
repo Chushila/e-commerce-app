@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,600&display=swap');
+
 .App {
   text-align: center;
+  background-color: blanchedalmond;
+  background-repeat: repeat;
+  height: 100%;
+  font-family: 'Raleway';
+  font-size: 15px;
 }
 
 .App header{
@@ -14,4 +21,12 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  padding: 5px;
+}
+.App a:hover{
+  color:brown;
+}
+
+.App header{
+  border-bottom:solid black 1px;
 }

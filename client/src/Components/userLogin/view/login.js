@@ -15,7 +15,7 @@ function Login() {
         <button type ="submit">Login </button>
         </div>
 </form>
-<a href = 'http://localhost:3000/v1/register'> Register</a>
+<a href = '/register'> Register</a>
       </div>
     );
   }

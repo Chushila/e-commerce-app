@@ -1,6 +1,7 @@
 import {useState,useContext} from 'react'
-import {ProductContext} from './../../Products/Model/productContex'
+import {ProductContext} from '../../../Contexts/context'
 import './search.css'
+
 function Search(){
     const [inputValue,setInputValue]=useState();
     const {setSearch} = useContext(ProductContext)
@@ -9,7 +10,7 @@ const handleChange = (e)=>{
     setInputValue(e.target.value)
 }
 function handleSubmit(){
-    if(inputValue==='') {
+    if(inputValue==='' || inputValue ===undefined) {
         setSearch({isOn:false, term:''})
         return
 };

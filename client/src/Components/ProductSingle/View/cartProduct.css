@@ -1,0 +1,42 @@
+.cartProduct .infoContainer{
+    width: 60%;
+}
+.cartProduct{
+    width: 100%;
+    height: 90px;
+    background-color: #FFCCCC;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
+    stroke: black;
+    stroke-width: 1px;
+    border: 0.5px solid black;
+}
+.cartProduct img{
+    background-color: #FFFCFC;
+    margin-left: 10px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    
+}
+.cartProduct figcaption{
+    overflow: hidden;
+    width: 50%;
+    font-size: 13px;
+}
+
+ .money{
+  margin: auto;
+  margin-right: 2%;
+  font-size: 14px;
+  line-height: 20px;
+    
+}
+
+.cartProduct .infoContainer .price{
+    color:green;
+    margin: 5px;
+    font-size: 14px;
+}

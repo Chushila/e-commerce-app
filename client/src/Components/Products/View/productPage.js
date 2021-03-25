@@ -1,6 +1,6 @@
 import {useState,useEffect,useContext} from 'react'
 import Product from '../../ProductSingle/View/product'
-import { ProductContext } from '../Model/productContex';
+import {ProductContext} from '../../../Contexts/context'
 import './productPage.css'
 import {callApi} from '../Model/productApi'
 import {getProductSearch} from '../Model/productSearch'

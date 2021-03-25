@@ -1,0 +1,10 @@
+.Cart{
+    height: 100%;
+    width: 80%;
+    margin: auto;
+}
+
+
+.Cart footer{
+    float: right;
+}
