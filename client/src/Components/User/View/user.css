@@ -1,0 +1,21 @@
+.UserInfo{
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    width: 40%;
+    margin: auto;
+    justify-content: space-around;
+    border: rgba(0, 0, 0, 0.534) 1px solid;
+    margin-top: 30px;
+    font-size: 20px;
+    color: rgb(23, 204, 23);
+    -webkit-text-stroke: 0.3px rgb(0, 0, 0);
+    background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp6473460.jpg&f=1&nofb=1");
+    background-size: cover;
+    background-position: center;
+}
+
+.UserInfo a{
+    text-decoration: underline;
+    color: rgb(2, 98, 189);
+}

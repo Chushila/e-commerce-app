@@ -1,20 +1,24 @@
 import {useState,useContext} from 'react'
-import {ProductContext} from '../../../Contexts/context'
+import {SearchContext} from '../../../Contexts/context'
 import './search.css'
+import {useHistory} from 'react-router-dom'
 
 function Search(){
     const [inputValue,setInputValue]=useState();
-    const {setSearch} = useContext(ProductContext)
+    const {setSearch} = useContext(SearchContext)
+    const history = useHistory();
     
 const handleChange = (e)=>{
     setInputValue(e.target.value)
 }
 function handleSubmit(){
+  
     if(inputValue==='' || inputValue ===undefined) {
         setSearch({isOn:false, term:''})
         return
 };
     setSearch({isOn:true, term: inputValue.toLowerCase()})
+    history.push('/')
 }
 
     return(

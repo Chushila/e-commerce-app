@@ -27,6 +27,11 @@
   color:brown;
 }
 
+#logoutForm:hover{
+  color:brown;
+}
+
 .App header{
-  border-bottom:solid black 1px;
+  border-bottom:solid rgba(0, 0, 0, 0.438) 1px ;
+  
 }

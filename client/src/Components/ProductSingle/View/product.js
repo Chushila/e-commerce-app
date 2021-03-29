@@ -1,6 +1,6 @@
 import './product.css'
 import {CartContext} from '../../../Contexts/context'
-import {useContext, useState, useRef } from 'react'
+import {useContext, useState, useRef, useEffect } from 'react'
 
 function Product (props){
     const {cart, setCart} = useContext(CartContext);
@@ -18,7 +18,6 @@ function Product (props){
             quantityInCart.current+=1;
         cart[cart.findIndex(el=>el.id==props.info.id)].quantityInCart=quantityInCart.current;}
     }
-
     return(
         <div className='Product'>
             <img src={props.info.image}  alt='product'/>
