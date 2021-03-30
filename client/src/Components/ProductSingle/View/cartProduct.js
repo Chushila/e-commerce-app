@@ -1,6 +1,6 @@
 import './cartProduct.css'
 import {useEffect, useState,useContext} from 'react'
-import {PriceContext,CartContext} from '../../../Contexts/context' 
+import {CartContext} from '../../../Contexts/context' 
 
 function CartProduct (props){
     const [quantity,setQuantity] = useState(props.info.quantityInCart)
@@ -23,7 +23,7 @@ function CartProduct (props){
         if(quantity<=0){
             setCart(cart.filter((el)=>el.id!==props.info.id))
         }
-    },[quantity])
+    },[quantity,setCart,props.info.id])
   
 
      return(

@@ -3,7 +3,7 @@ import {callOrdersApi} from '../Model/orderAPI'
 import { useEffect, useState } from 'react';
 import OrderSingle from './OrderSingle'
 
-function Orders(props){
+function Orders(){
     const [orders,setOrders] = useState([]);
    useEffect(()=>{
     callOrdersApi(setOrders)

@@ -45,7 +45,7 @@ export const userByName = async (req, res) => {
   try {
     const { username } = await req.user;
     const data = await userModel.select(
-      'customer_name, customer_surname, username,verification',
+      'customer_name, customer_surname, username,verification, email, phone',
       ` WHERE username = '${username}'`
     );
 
@@ -77,7 +77,7 @@ export const alterUser = async (req, res) => {
       input.password = await bcrypt.hash(input.password, 10);
     }
     await userModel.alterTable(input, `WHERE username = '${username}';`);
-    res.status(201).send('changed');
+    res.status(201).redirect('http://localhost:3001/user');
   } catch (err) {
     res.status(200).json({ messages: err.stack });
   }

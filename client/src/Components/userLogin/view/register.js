@@ -1,3 +1,5 @@
+import './form.css'
+
 function Register(){
     return(
         <div className ='Register' >
@@ -5,26 +7,26 @@ function Register(){
 <form action = "http://localhost:3000/v1/register" method="POST">
     <div>
         <div>
-            <label for ='username'>username</label>
+            <label htmlFor ='username'>username</label>
             <input type = "text" id = "username" name = "username" required/>
         </div>
         <div>
-            <label for ='password'>password</label>
+            <label htmlFor ='password'>password</label>
             <input type = "text" id = "password" name = "password" required/>
         </div>
-        <label for ='name'>first name</label>
+        <label htmlFor ='name'>first name</label>
         <input type = "text" id = "name" name = "name" required/>
     </div>
     <div>
-        <label for ='surname'>last name</label>
+        <label htmlFor ='surname'>last name</label>
         <input type = "text" id = "surname" name = "surname" required/>
     </div>
     <div>
-        <label for ='email'>email</label>
+        <label htmlFor ='email'>email</label>
         <input type = "text" id = "email" name = "email" required/>
     </div>
     <div>
-        <label for ='phone'>phone number</label>
+        <label htmlFor ='phone'>phone number</label>
         <input type = "text" id = "phone" name = "phone" required/>
     </div>
     <button type ="submit">Register </button>

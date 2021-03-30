@@ -1,6 +1,6 @@
 import Model from '../models/model'
 
-const orderModel = new Model('orders');
+export const orderModel = new Model('orders');
 export const ordersPage = async (req, res) => {
   try {
     const data = await orderModel.select('id, time_ordered, users');
@@ -10,18 +10,6 @@ export const ordersPage = async (req, res) => {
   }
 };
 
-export const addOrder = async (req, res, next) => {
-  const { username } = req.user;
-  const columns = 'time_ordered,users';
-  const date = new Date(Date.now());
-  const values = `'${date.toUTCString()}','${username.username}'`;
-  try {
-    await orderModel.insertWithReturn(columns, values);
-    next();
-  } catch (err) {
-    res.status(200).json({ messages: err.stack });
-  }
-};
 
 export const orderById = async (req, res) => {
   try {
@@ -39,7 +27,7 @@ export const orderByUser = async (req, res) => {
   try {
     const { username } = await req.user;
     const data = await orderModel.select(
-      'id, time_ordered, users',
+      'id, time_ordered, users, total',
       ` WHERE users = '${username}'`
     );
     res.status(200).json({ messages: data.rows });

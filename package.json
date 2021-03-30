@@ -7,7 +7,7 @@
     "test": "nyc --reporter=html --reporter=text --reporter=lcov mocha -r @babel/register",
     "prestart": "babel ./src --out-dir build",
     "start": "node ./src/bin/www",
-    "startdev": "nodemon --exec babel-node ./src/bin/www",
+    "startdev": "nodemon --exec babel-node --presets @babel/react ./src/bin/www",
     "lint": "./node_modules/.bin/eslint ./src",
     "pretty": "prettier --write **/*.{js,json} !node_modules/**",
     "postpretty": "yarn lint --fix"
@@ -21,8 +21,11 @@
     "@babel/register": "^7.13.0",
     "@babel/runtime": "^7.13.7",
     "axios": "^0.21.1",
+    "babel-preset-react": "^6.24.1",
     "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
     "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
     "crypto-random-string": "^3.3.1",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
@@ -30,17 +33,22 @@
     "express": "^4.16.4",
     "express-flash": "^0.0.2",
     "express-session": "^1.17.1",
+    "google-images": "^2.1.0",
     "http-errors": "~1.6.3",
     "method-override": "^3.0.0",
     "morgan": "~1.9.1",
     "node-fetch": "^2.6.1",
     "nodemon": "^2.0.7",
     "passport": "^0.4.1",
+    "passport-auth0": "^1.4.0",
     "passport-local": "^1.0.0",
     "pg": "^8.5.1",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-syntax-jsx": "^7.12.13",
+    "@babel/preset-react": "^7.12.13",
     "chai": "^4.3.0",
     "coveralls": "^3.1.0",
     "eslint": "^7.20.0",
@@ -50,6 +58,7 @@
     "nyc": "^15.1.0",
     "prettier": "^2.2.1",
     "sinon-chai": "^3.5.0",
-    "supertest": "^6.1.3"
+    "supertest": "^6.1.3",
+    "webpack-dev-server": "^3.11.2"
   }
 }

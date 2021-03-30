@@ -20,7 +20,7 @@ indexRouter.get('/myinfo', checkAuthenticated, userByName);
 indexRouter.put('/myinfo', checkAuthenticated, alterUser);
 indexRouter.delete('/logout', (req, res) => {
   req.logOut();
-  req.redirect('/login');
+  res.redirect('http://localhost:3001/login');
 });
 
 indexRouter.get('/login', checkNotAuthenticated, (req, res) => {
@@ -43,7 +43,7 @@ indexRouter.post('/register', addUser);
 
 indexRouter.get('/orders:id', checkAuthenticated, productsOrdersPage);
 indexRouter.get('/orders', checkAuthenticated, orderByUser);
-indexRouter.post('/orders', checkAuthenticated, addOrder, addProductsToOrder);
+indexRouter.post('/orders', checkAuthenticated, addProductsToOrder);
 
 // address
 

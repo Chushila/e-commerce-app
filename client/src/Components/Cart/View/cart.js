@@ -6,9 +6,9 @@ import { sum } from 'mathjs'
 import { useHistory } from 'react-router'
 
 function Cart(){
-    const {cart,setCart} = useContext(CartContext);
+    const {cart} = useContext(CartContext);
     const [total,setTotal] = useState([]);
-    const {user,setUser} = useContext(UserContex)
+    const {user} = useContext(UserContex)
     const history = useHistory();
 
     const postOrder=()=>{

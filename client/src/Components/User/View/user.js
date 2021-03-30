@@ -1,5 +1,5 @@
 import './user.css'
-import {useState,useEffect,useContext} from 'react'
+import {useEffect,useContext} from 'react'
 import {UserContex} from '../../../Contexts/context'
 import {Link} from 'react-router-dom'
 

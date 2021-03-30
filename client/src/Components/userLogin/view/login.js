@@ -1,3 +1,5 @@
+import './form.css'
+
 function Login() {
 
     return (
@@ -6,11 +8,11 @@ function Login() {
 <form action = "http://localhost:3000/v1/login" method="POST">
     <div>
         <div>
-            <label for ='username'>username</label>
+            <label htmlFor ='username'>username</label>
             <input type = "text" id = "username" name = "username" required/>
         </div>
         <div>
-            <label for ='password'>password</label>
+            <label htmlFor ='password'>password</label>
             <input type = "text" id = "password" name = "password" required/>
         </div>
         <button type ="submit">Login </button>

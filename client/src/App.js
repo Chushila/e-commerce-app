@@ -3,12 +3,12 @@ import Login from './Components/userLogin/view/login'
 import ProductPage from './Components/Products/View/productPage'
 import Register from './Components/userLogin/view/register'
 import Orders from './Components/Orders/View/Orders'
-import {useState, useContext, useEffect, useRef} from 'react'
+import {useState, useEffect} from 'react'
 import {callApi} from './Components/Products/Model/productApi'
 import React from 'react'
 import {CartContext,UserContex,SearchContext,AllProductsContext} from './Contexts/context'
 import Search from './Components/Search/View/search'
-import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
+import { Link, Route, Switch } from "react-router-dom";
 import User from './Components/User/View/user'
 import Cart from './Components/Cart/View/cart'
 import ChangeInfo from './Components/userLogin/view/changeInfo'
@@ -28,7 +28,7 @@ function App() {
      setCookie('cart',cart,{
        path:'/'
      })
-   },[cart])
+   },[cart,setCookie])
    useEffect(()=>{
       if(!cart[0]&&cookies.cart[0]){
         setCart(cookies.cart)

@@ -1,10 +1,11 @@
 import Model from '../models/model';
-import { lastOrderId } from './orders';
+import {orderModel} from './orders';
+import { v4 as uuidv4 } from 'uuid';
 
 const productModel = new Model('products');
 export const productsPage = async (req, res) => {
   try {
-    const data = await productModel.select('id, name, price, price, quantity');
+    const data = await productModel.select('id, name, price, price, quantity,image');
     res.status(200).json({ messages: data.rows });
   } catch (err) {
     res.status(200).json({ messages: err.stack });
@@ -14,12 +15,26 @@ export const productsPage = async (req, res) => {
 export const addProductsToOrder = async (req, res) => {
   try {
     const { username } = await req.user;
-    const id = await lastOrderId(username);
-    const { products } = await req.body;
-    products.forEach((element) => {
-      const value = [ id, Number(element) ];
+    const { cart, total } = await req.body;
+    const columns = 'time_ordered,users,id,total';
+    const date = new Date(Date.now());
+    const id = uuidv4();
+    const values = `'${date.toUTCString()}','${username}','${id}',${total}`;
+    const order = await orderModel.insertWithReturn(columns, values);
+    cart.forEach((element) => {
+      const value = [ Number(element.id), `'${id}'`, Number(element.quantityInCart) ];
       productModel.insertInCustomTable('products_orders', value);
     });
+    res.status(204);
+  } catch (err) {
+    res.status(200).json({ messages: err.stack });
+  }
+};
+
+export const getProductsOfOrder = async (req, res) => {
+  try {
+    const data = await productModel.select('id, name, price, price, quantity, image');
+    res.status(200).json({ messages: data.rows });
   } catch (err) {
     res.status(200).json({ messages: err.stack });
   }

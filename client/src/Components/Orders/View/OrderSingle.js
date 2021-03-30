@@ -5,7 +5,7 @@ import OrderProduct from '../../ProductSingle/View/orderProduct'
 import dateTime from 'date-time'
 
 function OrderSingle(props){
-    const {products,setProducts} = useContext(AllProductsContext)
+    const {products} = useContext(AllProductsContext)
     const [productsInfo,setProductsInfo] = useState([])
     useEffect(()=>{
         fetch(`http://localhost:3000/v1/orders:${props.info.id}`,{
@@ -13,7 +13,7 @@ function OrderSingle(props){
          mode:'cors'
         }).then(res=>res.json()).then(res=>setProductsInfo(res.messages))
     .catch(err => err)
-    },[])
+    },[props.info.id])
     return(
         <div className = 'Order'>
             <section className='OrderInfo'>

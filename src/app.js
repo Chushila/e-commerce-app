@@ -4,12 +4,12 @@ import cookieParser from 'cookie-parser';
 import passport from 'passport';
 import flash from 'express-flash';
 import session from 'express-session';
+import cors from 'cors'
+import bodyParser from 'body-parser'
 import indexRouter from './routes/index';
 import { userByNamePass, getUserById } from './controllers/user';
 import initializePass from './utils/passport-config';
-import cors from 'cors'
-import {allowedOrigins} from './settings'
-
+import methorOverride from 'method-override'
 
 const cryptoRandomString = require('crypto-random-string');
 
@@ -31,6 +31,7 @@ app.use(cors({
   credentials: true,
   origin: 'http://localhost:3001'
 }));
+app.use(methorOverride('_method'))
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
