@@ -1,9 +1,9 @@
 import express from 'express';
 import passport from 'passport';
 import { addAddress } from '../controllers/address';
-import { addOrder, orderByUser } from '../controllers/orders';
+import { orderByUser } from '../controllers/orders';
 import { addUser, userByName, alterUser } from '../controllers/user';
-import {productsOrdersPage} from '../controllers/product-orders'
+import { productsOrdersPage } from '../controllers/product-orders';
 import {
   checkAuthenticated,
   checkNotAuthenticated,

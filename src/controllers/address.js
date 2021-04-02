@@ -29,7 +29,6 @@ export const addAddress = async (req, res) => {
     const data = await addressModel.insertWithReturn(columns, values);
     const userData = { address_id: id };
     const userChange = await alterUserLocally(userData, username);
-    console.log(userChange);
     res.status(200).json({ messages: data.rows });
   } catch (err) {
     res.status(200).json({ messages: err.stack });

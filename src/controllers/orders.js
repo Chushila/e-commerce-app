@@ -1,4 +1,4 @@
-import Model from '../models/model'
+import Model from '../models/model';
 
 export const orderModel = new Model('orders');
 export const ordersPage = async (req, res) => {
@@ -9,7 +9,6 @@ export const ordersPage = async (req, res) => {
     res.status(200).json({ messages: err.stack });
   }
 };
-
 
 export const orderById = async (req, res) => {
   try {

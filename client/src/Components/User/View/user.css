@@ -8,14 +8,26 @@
     border: rgba(0, 0, 0, 0.534) 1px solid;
     margin-top: 30px;
     font-size: 20px;
-    color: rgb(23, 204, 23);
+    color: rgb(224, 228, 25);
     -webkit-text-stroke: 0.3px rgb(0, 0, 0);
-    background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp6473460.jpg&f=1&nofb=1");
+    background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fc.wallhere.com%2Fphotos%2Fcd%2Fe8%2F1920x1080_px_minimalism_red_Simple-544891.jpg!d&f=1&nofb=1");
     background-size: cover;
     background-position: center;
 }
 
 .UserInfo a{
     text-decoration: underline;
-    color: rgb(2, 98, 189);
+    color: rgb(192, 197, 201);
+}
+.UserInfo a:hover{
+    color: rgb(18, 231, 100)
+    ;
+}
+
+@media only screen and (max-width: 600px){
+    .UserInfo{
+        width: 80%;
+        height: 80vh;
+    }
+
 }

@@ -1,0 +1,15 @@
+.smallNav{
+    display: none;
+    flex-direction: column;
+    height: 90vh;
+    justify-content: space-around;
+    font-size: 30px;
+    max-height: 90vh;
+    flex-wrap: wrap;
+    position: fixed;
+    top: 100px;
+}
+.smallNav a{
+    width: 100vh;
+    padding: 20px;
+}

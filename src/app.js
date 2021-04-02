@@ -4,12 +4,12 @@ import cookieParser from 'cookie-parser';
 import passport from 'passport';
 import flash from 'express-flash';
 import session from 'express-session';
-import cors from 'cors'
-import bodyParser from 'body-parser'
+import cors from 'cors';
+import path from 'path';
+import methorOverride from 'method-override';
 import indexRouter from './routes/index';
 import { userByNamePass, getUserById } from './controllers/user';
 import initializePass from './utils/passport-config';
-import methorOverride from 'method-override'
 
 const cryptoRandomString = require('crypto-random-string');
 
@@ -27,11 +27,13 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(cors({
-  credentials: true,
-  origin: 'http://localhost:3001'
-}));
-app.use(methorOverride('_method'))
+app.use(
+  cors({
+    credentials: true,
+    origin: 'http://localhost:3001',
+  })
+);
+app.use(methorOverride('_method'));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -42,4 +44,11 @@ app.use((err, req, res, next) => {
   next();
 });
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(process.cwd(), 'client/build')));
+}
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(process.cwd(), 'client/build/index.html'));
+});
 export default app;
