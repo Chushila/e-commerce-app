@@ -8,7 +8,7 @@ function OrderSingle(props) {
   const { products } = useContext(AllProductsContext);
   const [productsInfo, setProductsInfo] = useState([]);
   useEffect(() => {
-    fetch(`v1/orders:${props.info.id}`, {
+    fetch(`/orders:${props.info.id}`, {
       credentials: 'include',
       mode: 'cors',
     })

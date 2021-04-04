@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 function User() {
   const { user, setUser } = useContext(UserContex);
   function getUserInfo() {
-    fetch('v1/myinfo', {
+    fetch('/myinfo', {
       credentials: 'include',
       mode: 'cors',
     })

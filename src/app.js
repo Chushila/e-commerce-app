@@ -8,6 +8,7 @@ import cryptoRandomString from 'crypto-random-string';
 import cors from 'cors';
 import path from 'path';
 import methorOverride from 'method-override';
+// import app from './routes/index.js';
 import initializePass from './utils/passport-config.js';
 import { addAddress } from './controllers/address.js';
 import { orderByUser } from './controllers/orders.js';
@@ -26,9 +27,8 @@ import { productsPage, addProductsToOrder } from './controllers/products.js';
 initializePass(passport, userByNamePass, getUserById);
 
 const app = express();
-
 app.set('view-engine', 'ejs');
-app.use('/v1', app);
+// app.use('/v1', app);
 app.use(flash());
 app.use(
   session({
@@ -84,6 +84,11 @@ app.post('/orders', checkAuthenticated, addProductsToOrder);
 // address
 
 app.post('/addressinfo', checkAuthenticated, addAddress);
+
+
+
+
+
 
 
 

@@ -1,5 +1,5 @@
 export function callApi(setProducts) {
-  fetch('v1/products', {
+  fetch('/products', {
     credentials: 'include',
     mode: 'cors',
   })

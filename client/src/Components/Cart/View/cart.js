@@ -13,7 +13,7 @@ function Cart() {
 
   const postOrder = () => {
     if (!user[0]) history.push('/login');
-    fetch('v1/orders', {
+    fetch('/orders', {
       method: 'POST',
       body: JSON.stringify({
         cart: cart,
@@ -21,7 +21,7 @@ function Cart() {
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
-        'Access-Control-Allow-Origin': 'http://localhost:3001/cart',
+        'Access-Control-Allow-Origin': 'https://e-commerce-app-chushila.herokuapp.com/cart',
       },
       credentials: 'include',
       mode: 'cors',

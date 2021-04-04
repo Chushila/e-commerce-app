@@ -1,5 +1,5 @@
 export function callOrdersApi(setOrders) {
-  fetch('v1/orders', {
+  fetch('/orders', {
     credentials: 'include',
     mode: 'cors',
   })
@@ -9,7 +9,7 @@ export function callOrdersApi(setOrders) {
 }
 
 export function findOrderProductsApi(setProducts) {
-  fetch('v1/orders:', {
+  fetch('/orders:', {
     credentials: 'include',
     mode: 'cors',
   });

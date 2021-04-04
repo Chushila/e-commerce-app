@@ -9,7 +9,7 @@ function ChangeInfo() {
     <div className="ChangeInfo">
       {user[0] && (
         <div className="formDiv">
-          <form id="ChangeInfo" action="v1/myinfo?_method=PUT" method="POST">
+          <form id="ChangeInfo" action="/myinfo?_method=PUT" method="POST">
             <div>
               <label htmlFor="name">first name</label>
               <input
