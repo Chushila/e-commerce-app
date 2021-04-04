@@ -13,7 +13,7 @@ function Cart() {
 
   const postOrder = () => {
     if (!user[0]) history.push('/login');
-    fetch('/orders', {
+    fetch('v1/orders', {
       method: 'POST',
       body: JSON.stringify({
         cart: cart,
