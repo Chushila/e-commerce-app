@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
-import Model from '../models/model';
-import { orderModel } from './orders';
+import Model from '../models/model.js';
+import { orderModel } from './orders.js';
 
 const productModel = new Model('products');
 export const productsPage = async (req, res) => {

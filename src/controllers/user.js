@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 import { v4 as uuidv4 } from 'uuid';
-import Model from '../models/model';
+import Model from '../models/model.js';
 
 const userModel = new Model('customers');
 export const userPage = async (req, res) => {

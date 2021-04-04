@@ -1,5 +1,5 @@
-import { pool } from './pool';
-import { executeQueryArray } from '../utils/queryFunctions';
+import { pool } from './pool.js';
+import { executeQueryArray } from '../utils/queryFunctions.js';
 
 class Model {
   constructor(table) {

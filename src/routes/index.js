@@ -1,14 +1,14 @@
 import express from 'express';
 import passport from 'passport';
-import { addAddress } from '../controllers/address';
-import { orderByUser } from '../controllers/orders';
-import { addUser, userByName, alterUser } from '../controllers/user';
-import { productsOrdersPage } from '../controllers/product-orders';
+import { addAddress } from '../controllers/address.js';
+import { orderByUser } from '../controllers/orders.js';
+import { addUser, userByName, alterUser } from '../controllers/user.js';
+import { productsOrdersPage } from '../controllers/product-orders.js';
 import {
   checkAuthenticated,
   checkNotAuthenticated,
-} from '../middleware/middleware';
-import { productsPage, addProductsToOrder } from '../controllers/products';
+} from '../middleware/middleware.js';
+import { productsPage, addProductsToOrder } from '../controllers/products.js';
 
 const indexRouter = express.Router();
 // products

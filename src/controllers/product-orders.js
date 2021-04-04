@@ -1,4 +1,4 @@
-import Model from '../models/model';
+import Model from '../models/model.js';
 
 const productOrdersModel = new Model('products_orders');
 

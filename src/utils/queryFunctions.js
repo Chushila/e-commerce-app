@@ -1,5 +1,5 @@
-import { pool } from '../models/pool';
-import { insertMessages } from './queries';
+import { pool } from '../models/pool.js';
+import { insertMessages } from './queries.js';
 
 export const executeQueryArray = async (arr) => new Promise((resolve) => {
   const stop = arr.length;

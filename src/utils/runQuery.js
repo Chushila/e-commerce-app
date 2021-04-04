@@ -1,4 +1,4 @@
-import { insertIntoTables } from './queryFunctions';
+import { insertIntoTables } from './queryFunctions.js';
 
 (async () => {
   await insertIntoTables();

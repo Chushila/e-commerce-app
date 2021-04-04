@@ -4,14 +4,15 @@ import cookieParser from 'cookie-parser';
 import passport from 'passport';
 import flash from 'express-flash';
 import session from 'express-session';
+import cryptoRandomString from 'crypto-random-string';
 import cors from 'cors';
 import path from 'path';
 import methorOverride from 'method-override';
-import indexRouter from './routes/index';
-import { userByNamePass, getUserById } from './controllers/user';
-import initializePass from './utils/passport-config';
+import indexRouter from './routes/index.js';
+import { userByNamePass, getUserById } from './controllers/user.js';
+import initializePass from './utils/passport-config.js';
 
-const cryptoRandomString = require('crypto-random-string');
+
 
 initializePass(passport, userByNamePass, getUserById);
 

@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
-import Model from '../models/model';
-import { alterUserLocally } from './user';
+import Model from '../models/model.js';
+import { alterUserLocally } from './user.js';
 
 const addressModel = new Model('delivery_address');
 export const addressPage = async (req, res) => {
