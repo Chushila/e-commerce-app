@@ -20,20 +20,14 @@ indexRouter.get('/myinfo', checkAuthenticated, userByName);
 indexRouter.put('/myinfo', checkAuthenticated, alterUser);
 indexRouter.delete('/logout', (req, res) => {
   req.logOut();
-  res.redirect('http://localhost:3001/login');
+  res.redirect('/login');
 });
 
-indexRouter.get('/login', checkNotAuthenticated, (req, res) => {
-  res.render('login.ejs');
-});
-indexRouter.get('/register', checkNotAuthenticated, (req, res) => {
-  res.render('register.ejs');
-});
 indexRouter.post(
   '/login',
   passport.authenticate('local', {
-    successRedirect: 'http://localhost:3001/user',
-    failureRedirect: 'http://localhost:3001/login',
+    successRedirect: '/user',
+    failureRedirect: '/login',
     failureFlash: true,
   })
 );

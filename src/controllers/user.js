@@ -24,7 +24,7 @@ export const addUser = async (req, res) => {
     const hashedPas = await bcrypt.hash(password, 10);
     const values = `'${name}', '${surname}', '${email}', '${username}', '${hashedPas}','${uuidv4()}'`;
     await userModel.insertWithReturn(columns, values);
-    res.redirect('https://localhost:3001/login');
+    res.redirect('/login');
   } catch (err) {
     res.status(200).json({ messages: err.stack });
   }
@@ -77,7 +77,7 @@ export const alterUser = async (req, res) => {
       input.password = await bcrypt.hash(input.password, 10);
     }
     await userModel.alterTable(input, `WHERE username = '${username}';`);
-    res.status(201).redirect('http://localhost:3001/user');
+    res.status(201).redirect('/user');
   } catch (err) {
     res.status(200).json({ messages: err.stack });
   }
