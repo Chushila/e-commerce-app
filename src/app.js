@@ -31,7 +31,7 @@ app.use(passport.session());
 app.use(
   cors({
     credentials: true,
-    origin: 'http://localhost:3001',
+    origin: 'https://e-commerce-app-chushila.herokuapp.com',
   })
 );
 app.use(methorOverride('_method'));
