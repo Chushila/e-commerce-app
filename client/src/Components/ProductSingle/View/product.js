@@ -22,8 +22,11 @@ function Product(props) {
     }
   }
   useEffect(()=>{
-    if(props.info.quantityInCart>0){document.getElementById(`button${props.info.id}`).style.backgroundImage='url(./../../../../media/images/plus.png)'}
-  },[props.info.quantityInCart])
+    if(props.info.quantityInCart>0){document.getElementById(`button${props.info.id}`).style.backgroundImage='url(../../../media/images/plus.png)'}
+    else{
+      document.getElementById(`button${props.info.id}`).style.backgroundImage='url(../../../media/images/logo-shopping-cart-product-design-png-favpng-wF6d2kqQrVTa5YbjCvDeE30yT.jpg)'
+    }
+  },[cart])
   return (
     <div className="Product">
       <img src={props.info.image} alt="product" />

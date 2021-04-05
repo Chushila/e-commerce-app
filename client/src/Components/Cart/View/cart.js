@@ -6,7 +6,7 @@ import { sum } from 'mathjs';
 import { useHistory } from 'react-router';
 
 function Cart() {
-  const { cart } = useContext(CartContext);
+  const { cart, setCart } = useContext(CartContext);
   const [total, setTotal] = useState([]);
   const { user } = useContext(UserContex);
   const history = useHistory();
@@ -27,7 +27,7 @@ function Cart() {
       mode: 'cors',
     })
       .then((res) => res.json())
-      .then((json) => console.log(json));
+      .then((json) => setCart({}));
   };
 
   useEffect(() => {
