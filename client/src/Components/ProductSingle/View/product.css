@@ -40,6 +40,14 @@ img{
     background-size: cover;
     background-position: center;
 }
+.Product .altButton{
+    width: 32px;
+    height: 32px;
+    background-image: url('../../../media/images/plus.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
 
 .Product .infoContainer span{
     color:green;

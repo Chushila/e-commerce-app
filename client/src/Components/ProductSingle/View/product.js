@@ -21,12 +21,6 @@ function Product(props) {
         quantityInCart.current;
     }
   }
-  useEffect(()=>{
-    if(props.info.quantityInCart>0){document.getElementById(`button${props.info.id}`).style.backgroundImage=`url('../../../../build/static/media/plus.png)`}
-    else{
-      document.getElementById(`button${props.info.id}`).style.backgroundImage=`url('../../../../build/static/media/logo-shopping-cart-product-design-png-favpng-wF6d2kqQrVTa5YbjCvDeE30yT.528eee43.jpg')`
-    }
-  },[cart])
   return (
     <div className="Product">
       <img src={props.info.image} alt="product" />
@@ -34,7 +28,7 @@ function Product(props) {
         <figcaption>{props.info.name}</figcaption>
         <span>{props.info.price}$</span>
         {quantityInCart.current < props.info.quantity ? (
-          <button id={`button${props.info.id}`} onClick={handleClick}></button>
+          cart.find(el=>el.id === props.info.id)?<button className='altButton' onClick={handleClick}></button> :<button id={`button${props.info.id}`} onClick={handleClick}></button>
         ) : (
           <span id="OutOfStock">Out of stock</span>
         )}
