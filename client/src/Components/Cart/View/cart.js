@@ -27,7 +27,7 @@ function Cart() {
       mode: 'cors',
     })
       .then((res) => res.json())
-      .then((json) => setCart({}));
+      .then((json) => setCart([]));
   };
 
   useEffect(() => {
