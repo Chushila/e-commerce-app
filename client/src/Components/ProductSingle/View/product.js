@@ -22,9 +22,9 @@ function Product(props) {
     }
   }
   useEffect(()=>{
-    if(props.info.quantityInCart>0){document.getElementById(`button${props.info.id}`).style.backgroundImage='url(../../../media/images/plus.png)'}
+    if(props.info.quantityInCart>0){document.getElementById(`button${props.info.id}`).style.backgroundImage=`url('/static/media/plus.png')`}
     else{
-      document.getElementById(`button${props.info.id}`).style.backgroundImage=`url('../../../media/images/logo-shopping-cart-product-design-png-favpng-wF6d2kqQrVTa5YbjCvDeE30yT.jpg')`
+      document.getElementById(`button${props.info.id}`).style.backgroundImage=`url('/static/media/logo-shopping-cart-product-design-png-favpng-wF6d2kqQrVTa5YbjCvDeE30yT.528eee43.jpg')`
     }
   },[cart])
   return (
