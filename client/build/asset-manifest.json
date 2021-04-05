@@ -13,7 +13,7 @@
     "static/css/main.803f015c.chunk.css.map": "/static/css/main.803f015c.chunk.css.map",
     "static/js/2.68f60882.chunk.js.LICENSE.txt": "/static/js/2.68f60882.chunk.js.LICENSE.txt",
     "static/media/user.css": "/static/media/UserBack.5a25d908.jpg",
-    "static/media/product.css": "/static/media/logo-shopping-cart-product-design-png-favpng-wF6d2kqQrVTa5YbjCvDeE30yT.528eee43.jpg",
+    "static/media/product.css": ["/static/media/logo-shopping-cart-product-design-png-favpng-wF6d2kqQrVTa5YbjCvDeE30yT.528eee43.jpg","/static/media/plus.png"],
     "static/media/cartProduct.css": "/static/media/minus.05185a89.png"
   },
   "entrypoints": [
