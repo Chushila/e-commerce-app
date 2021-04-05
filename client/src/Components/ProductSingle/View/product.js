@@ -1,6 +1,6 @@
 import './product.css';
 import { CartContext } from '../../../Contexts/context';
-import { useContext, useRef } from 'react';
+import { useContext, useRef, useEffect } from 'react';
 
 function Product(props) {
   const { cart, setCart } = useContext(CartContext);
@@ -21,6 +21,9 @@ function Product(props) {
         quantityInCart.current;
     }
   }
+  useEffect(()=>{
+    if(props.info.quantityInCart>0){document.getElementById(`button${props.info.id}`).style.backgroundImage='url(./../../../../media/images/plus.png)'}
+  },[props.info.quantityInCart])
   return (
     <div className="Product">
       <img src={props.info.image} alt="product" />
@@ -28,7 +31,7 @@ function Product(props) {
         <figcaption>{props.info.name}</figcaption>
         <span>{props.info.price}$</span>
         {quantityInCart.current < props.info.quantity ? (
-          <button onClick={handleClick}></button>
+          <button id={`button${props.info.id}`} onClick={handleClick}></button>
         ) : (
           <span id="OutOfStock">Out of stock</span>
         )}

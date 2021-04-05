@@ -31,7 +31,7 @@ export const addProductsToOrder = async (req, res) => {
       ];
       productModel.insertInCustomTable('products_orders', value);
     });
-    res.status(204);
+    res.status(204).redirect('/orders');
   } catch (err) {
     res.status(200).json({ messages: err.stack });
   }
