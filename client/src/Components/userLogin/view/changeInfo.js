@@ -4,7 +4,6 @@ import './form.css';
 
 function ChangeInfo() {
   const { user } = useContext(UserContex);
-
   return (
     <div className="ChangeInfo">
       {user[0] && (
@@ -16,7 +15,7 @@ function ChangeInfo() {
                 type="text"
                 id="name"
                 name="customer_name"
-                placeholder={`${user[0].customer_name}`}
+                value={`${user[0].customer_name}`}
               />
             </div>
             <div>
@@ -25,7 +24,7 @@ function ChangeInfo() {
                 type="text"
                 id="surname"
                 name="customer_surname"
-                placeholder={`${user[0].customer_surname}`}
+                value={`${user[0].customer_surname}`}
               />
             </div>
             <div>
@@ -34,7 +33,7 @@ function ChangeInfo() {
                 type="text"
                 id="email"
                 name="email"
-                placeholder={`${user[0].email}`}
+                value={`${user[0].email}`}
               />
             </div>
             <div>
@@ -43,7 +42,7 @@ function ChangeInfo() {
                 type="text"
                 id="phone"
                 name="phone"
-                placeholder={`${user[0].phone}`}
+                value={`${user[0].phone}`}
               />
             </div>
             <button type="submit">Save Changes </button>
