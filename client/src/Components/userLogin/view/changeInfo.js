@@ -46,7 +46,7 @@ function ChangeInfo() {
                 value={`${user[0].phone}`}
               />
             </div>
-            <button type="submit" onSubmit={validateInputs}>Save Changes </button>
+            <button type="submit" onClick={validateInputs}>Save Changes </button>
           </form>
         </div>
       )}

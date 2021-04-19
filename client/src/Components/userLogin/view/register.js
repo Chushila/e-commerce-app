@@ -36,7 +36,7 @@ function Register() {
             <input type="text" id="phone" name="phone" required />
           </div>
         </div>
-        <button type="submit" onSubmit = {validateInputs}>Register </button>
+        <button type="submit" onClick = {validateInputs}>Register </button>
       </form>
       <a href="/login"> Login</a>
     </div>

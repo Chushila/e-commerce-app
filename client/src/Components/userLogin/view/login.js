@@ -16,7 +16,7 @@ function Login() {
             <input type="text" id="password" name="password" required />
           </div>
         </div>
-        <button type="submit" onSubmit={validateInputs}>Login </button>
+        <button type="submit" onClick={validateInputs}>Login </button>
       </form>
       <a href="/register"> Register</a>
     </div>
