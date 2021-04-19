@@ -2,10 +2,7 @@ import {validateInputs} from '../../../media/utils'
 import './form.css';
 
 function Register() {
-  function checkUserName(){
-    const regex = /^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/g;
-    if(document.getElementById('username').value.match(regex))
-  }
+  
   return (
     <div className="Register">
       <h1>Register</h1>
