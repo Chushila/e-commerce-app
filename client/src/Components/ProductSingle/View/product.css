@@ -33,16 +33,16 @@ img{
     align-items: center;
 }
 .Product button{
-    width: 32px;
-    height: 32px;
+    width: 26px;
+    height: 26px;
     background-image: url('../../../media/images/trolley.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 .Product .altButton{
-    width: 32px;
-    height: 32px;
+    width: 26px;
+    height: 26px;
     background-image: url('../../../media/images/plus.png');
     background-repeat: no-repeat;
     background-size: cover;

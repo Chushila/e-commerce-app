@@ -1,10 +1,11 @@
 import './form.css';
+import validator from 'validator';
 
 function Register() {
   return (
     <div className="Register">
       <h1>Register</h1>
-      <form action="/register" method="POST">
+      <form action="/register" method="POST" >
         <div className="formDiv">
           <div>
             <label htmlFor="username">username</label>

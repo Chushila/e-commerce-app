@@ -19,12 +19,14 @@ export const addUser = async (req, res) => {
     name, surname, email, username, password
   } = req.body;
   const columns = 'customer_name, customer_surname, email, username, password,id';
+  const query = `INSERT INTO customers
+  (${columns})VALUES ($1, $2, $3, $4, $5, $6)`;
 
   try {
     const hashedPas = await bcrypt.hash(password, 10);
-    const values = `'${name}', '${surname}', '${email}', '${username}', '${hashedPas}','${uuidv4()}'`;
-    await userModel.insertWithReturn(columns, values);
-    res.status(204).json({ messages: 'Created'});
+    const values = [name, surname, email, username, hashedPas, uuidv4()];
+    await this.pool.query(query, values);
+    res.status(204).redirect('/login');
   } catch (err) {
     res.status(200).json({ messages: err.stack });
   }
