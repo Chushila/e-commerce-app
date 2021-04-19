@@ -1,7 +1,11 @@
+import {validateInputs} from '../../../media/utils'
 import './form.css';
-import validator from 'validator';
 
 function Register() {
+  function checkUserName(){
+    const regex = /^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/g;
+    if(document.getElementById('username').value.match(regex))
+  }
   return (
     <div className="Register">
       <h1>Register</h1>
@@ -24,15 +28,15 @@ function Register() {
             <input type="text" id="surname" name="surname" required />
           </div>
           <div>
-            <label htmlFor="email">email</label>
+            <label htmlFor="email" >email</label>
             <input type="text" id="email" name="email" required />
           </div>
           <div>
-            <label htmlFor="phone">phone number</label>
+            <label htmlFor="tel">phone number</label>
             <input type="text" id="phone" name="phone" required />
           </div>
         </div>
-        <button type="submit">Register </button>
+        <button type="submit" onSubmit = {validateInputs}>Register </button>
       </form>
       <a href="/login"> Login</a>
     </div>

@@ -25,7 +25,7 @@ export const addUser = async (req, res) => {
   try {
     const hashedPas = await bcrypt.hash(password, 10);
     const values = [name, surname, email, username, hashedPas, uuidv4()];
-    await this.pool.query(query, values);
+    await userModel.pool.query(query, values);
     res.status(204).redirect('/login');
   } catch (err) {
     res.status(200).json({ messages: err.stack });

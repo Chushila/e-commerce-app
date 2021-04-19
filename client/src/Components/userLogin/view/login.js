@@ -1,3 +1,4 @@
+import {validateInputs} from '../../../media/utils'
 import './form.css';
 
 function Login() {
@@ -15,7 +16,7 @@ function Login() {
             <input type="text" id="password" name="password" required />
           </div>
         </div>
-        <button type="submit">Login </button>
+        <button type="submit" onSubmit={validateInputs}>Login </button>
       </form>
       <a href="/register"> Register</a>
     </div>

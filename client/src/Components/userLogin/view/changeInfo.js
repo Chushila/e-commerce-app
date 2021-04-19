@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { UserContex } from '../../../Contexts/context';
+import {validateInputs} from '../../../media/utils'
 import './form.css';
 
 function ChangeInfo() {
@@ -30,7 +31,7 @@ function ChangeInfo() {
             <div>
               <label htmlFor="email">email</label>
               <input
-                type="text"
+                type="email"
                 id="email"
                 name="email"
                 value={`${user[0].email}`}
@@ -39,13 +40,13 @@ function ChangeInfo() {
             <div>
               <label htmlFor="phone">phone number</label>
               <input
-                type="text"
+                type="tel"
                 id="phone"
                 name="phone"
                 value={`${user[0].phone}`}
               />
             </div>
-            <button type="submit">Save Changes </button>
+            <button type="submit" onSubmit={validateInputs}>Save Changes </button>
           </form>
         </div>
       )}
