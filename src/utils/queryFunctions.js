@@ -1,5 +1,5 @@
 import { pool } from '../models/pool.js';
-import { insertMessages } from './queries.js';
+
 
 export const executeQueryArray = async (arr) => new Promise((resolve) => {
   const stop = arr.length;
@@ -9,4 +9,4 @@ export const executeQueryArray = async (arr) => new Promise((resolve) => {
   });
 });
 
-export const insertIntoTables = () => executeQueryArray([ insertMessages ]);
+
