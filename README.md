@@ -1,2 +1,3 @@
 # Commerce App
-https://e-commerce-app-chushila.herokuapp.com
+Here is on deployed on heroku: https://e-commerce-app-chushila.herokuapp.com
+PERN application with restful API and OAuth authorization.
